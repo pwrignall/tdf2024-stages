@@ -81,7 +81,7 @@ path.profile-area {
     padding: 0 1rem;
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: 1fr;
     justify-items: stretch;
 }
 
@@ -163,8 +163,13 @@ footer {
     margin-top: 1rem;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: calc(500px + 3rem)) {
     :root {
         font-size: 32px;
     }
+
+    #stages {
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    }
+
 }
