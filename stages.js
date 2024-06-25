@@ -220,7 +220,6 @@ Object.keys(stages_data).forEach((stageKey) => {
   const eta = document.createElement("p");
   eta.className = "eta";
   const stageStart = new Date(stages_data[stageKey].date);
-  console.log(stageStart);
   let etaValue = stageStart.getTime();
 
   switch (stages_data[stageKey].type) {
@@ -241,7 +240,6 @@ Object.keys(stages_data).forEach((stageKey) => {
       }
       break;
   }
-  console.log(etaValue);
   eta.textContent = `${new Date(etaValue)
     .toLocaleTimeString("en-GB")
     .slice(0, -3)}`;

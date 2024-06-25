@@ -1,7 +1,11 @@
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+import { scaleLinear } from "https://cdn.jsdelivr.net/npm/d3-scale@3/+esm";
+import { max } from "https://cdn.jsdelivr.net/npm/d3-array@3/+esm";
+import { line, area } from "https://cdn.jsdelivr.net/npm/d3-shape@3/+esm";
+import { dsv } from "https://cdn.jsdelivr.net/npm/d3-fetch@3/+esm";
+import { create } from "https://cdn.jsdelivr.net/npm/d3-selection@3/+esm";
 
 const url = "output.psv";
-const data = await d3.dsv("|", url, (row) => {
+const data = await dsv("|", url, (row) => {
   return {
     stage: row.stage,
     lat: +row.lat,
@@ -24,38 +28,35 @@ function drawChart(objectsKey) {
   const width = 600;
   const height = 150;
 
-  const x = d3
-    .scaleLinear()
-    .domain([0, d3.max(data, (d) => d.dist)])
+  const x = scaleLinear()
+    .domain([0, max(data, (d) => d.dist)])
     // .domain(d3.extent(objects[objectsKey], (d) => d.dist))
     .range([0, width]);
 
-  const y = d3.scaleLinear([0, d3.max(data, (d) => d.ele)], [height, 0]);
+  const y = scaleLinear([0, max(data, (d) => d.ele)], [height, 0]);
 
-  const line = d3
-    .line()
+  const profileLine = line()
     .x((d) => x(d.dist))
     .y((d) => y(d.ele));
 
-  const area = d3
-    .area()
+  const profileArea = area()
     .x((d) => x(d.dist))
     .y0(y(0))
     .y1((d) => y(d.ele));
 
-  const svg = d3.create("svg").attr("viewBox", [0, 0, width, height]);
+  const svg = create("svg").attr("viewBox", [0, 0, width, height]);
 
   svg
     .append("path")
     .datum(objects[objectsKey])
     .attr("class", "profile-area")
-    .attr("d", area);
+    .attr("d", profileArea);
 
   svg
     .append("path")
     .datum(objects[objectsKey])
     .attr("class", "profile-line")
-    .attr("d", line);
+    .attr("d", profileLine);
 
   const container = document.querySelector(`div[data-stage="${objectsKey}"]`);
   container.append(svg.node());
