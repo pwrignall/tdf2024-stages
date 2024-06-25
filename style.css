@@ -1,5 +1,5 @@
 :root {
-    font-size: 26px;
+    font-size: 20px;
     --grey: hsl(180, 10%, 15%);
     --dark-grey: hsl(180, 10%, 5%);
     --yellow: rgb(255, 230, 90);
@@ -143,4 +143,11 @@ footer {
     text-align: center;
     padding: 0.5rem;
     font-size: 0.6rem;
+}
+
+@media screen and (min-width: 600px) {
+
+    :root {
+        font-size: 32px;
+    }
 }
