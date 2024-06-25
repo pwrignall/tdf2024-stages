@@ -203,10 +203,16 @@ const stages_data = {
 const eta_conv = 3600000;
 
 Object.keys(stages_data).forEach((stageKey) => {
+  const topElems = document.createElement("div");
+  topElems.className = "top-elements";
+  const bottomElems = document.createElement("div");
+  bottomElems.className = "bottom-elements";
+
   const stageInfo = stages_data[stageKey];
   const stageDiv = document.getElementById(stageKey);
   const stageInfoDiv = document.createElement("div");
   stageInfoDiv.className = "stage-info";
+
   const profileDiv = document.createElement("div");
   profileDiv.className = "profile";
   profileDiv.dataset.stage = `${stageKey}`;
@@ -236,7 +242,7 @@ Object.keys(stages_data).forEach((stageKey) => {
       break;
   }
   console.log(etaValue);
-  eta.textContent = `ETA: ${new Date(etaValue)
+  eta.textContent = `${new Date(etaValue)
     .toLocaleTimeString("en-GB")
     .slice(0, -3)}`;
 
@@ -251,7 +257,7 @@ Object.keys(stages_data).forEach((stageKey) => {
     })
     .slice(0, -5)
     .replace(",", "")}`;
-  stageDiv.appendChild(stageHeader);
+  topElems.appendChild(stageHeader);
 
   Object.keys(stageInfo).forEach((key) => {
     if (!["name", "date"].includes(key)) {
@@ -259,27 +265,29 @@ Object.keys(stages_data).forEach((stageKey) => {
       p.className = `${key}`;
       if (key === "location") {
         p.innerHTML = `${stageInfo[key]}`;
-        stageDiv.appendChild(p);
+        topElems.appendChild(p);
       } else if (key == "distance") {
         p.textContent = `${stageInfo[key].toFixed(1)}`;
-        stageDiv.appendChild(p);
+        topElems.appendChild(p);
       } else if (["down", "up"].includes(key)) {
         p.textContent = `${Math.abs(stageInfo[key].toFixed(0))}`;
         stageInfoDiv.appendChild(p);
       } else if (key === "type") {
         p.dataset.type = `${stageInfo[key].toLowerCase().replaceAll(" ", "-")}`;
         p.textContent = `${stageInfo[key]}`;
-        stageDiv.appendChild(p);
+        topElems.appendChild(p);
       } else {
         p.textContent = `${stageInfo[key]}`;
         stageInfoDiv.appendChild(p);
       }
       if (!["rest-01", "rest-02"].includes(stageKey)) {
-        stageDiv.appendChild(profileDiv);
+        bottomElems.appendChild(profileDiv);
         stageInfoDiv.appendChild(eta);
       }
 
-      stageDiv.appendChild(stageInfoDiv);
+      bottomElems.appendChild(stageInfoDiv);
+      stageDiv.appendChild(topElems);
+      stageDiv.appendChild(bottomElems);
     }
   });
 });

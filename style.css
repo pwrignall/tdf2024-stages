@@ -56,6 +56,15 @@ body {
     content: ' m';
 }
 
+.eta::before {
+    content: '🏁 ';
+}
+
+.eta::after {
+    content: ' ETA';
+    font-variant-caps: all-petite-caps;
+}
+
 path.profile-line {
     fill: none;
     stroke: var(--white);
@@ -70,13 +79,19 @@ path.profile-area {
 
 #stages {
     padding: 0 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    justify-items: stretch;
 }
 
 .stage {
-    margin: 1rem auto;
     background-color: var(--grey);
     padding: 0.2rem 1rem;
     border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 header {
@@ -87,6 +102,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
 h1 {
@@ -116,6 +132,7 @@ h2 {
     font-size: 1.5rem;
     font-weight: 600;
     margin-top: 0.3rem;
+    color: var(--yellow);
 }
 
 .profile {
@@ -143,10 +160,10 @@ footer {
     text-align: center;
     padding: 0.5rem;
     font-size: 0.6rem;
+    margin-top: 1rem;
 }
 
 @media screen and (min-width: 600px) {
-
     :root {
         font-size: 32px;
     }
