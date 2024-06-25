@@ -22,7 +22,7 @@ data.forEach((row) => {
 
 function drawChart(objectsKey) {
   const width = 600;
-  const height = 100;
+  const height = 150;
 
   const x = d3
     .scaleLinear()
