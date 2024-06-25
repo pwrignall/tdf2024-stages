@@ -1,0 +1,146 @@
+:root {
+    font-size: 26px;
+    --grey: hsl(180, 10%, 15%);
+    --dark-grey: hsl(180, 10%, 5%);
+    --yellow: rgb(255, 230, 90);
+    --white: hsl(0, 0%, 95%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Dosis", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: var(--dark-grey);
+    color: var(--white);
+}
+
+
+
+.distance::after {
+    content: ' km';
+}
+
+.type[data-type="individual-time-trial"]::before {
+    content: '⏱️ ';
+}
+
+.type[data-type="flat"]::before {
+    content: '🚴 ';
+}
+
+.type[data-type="hilly"]::before {
+    content: '🚵 ';
+}
+
+.type[data-type="mountain"]::before {
+    content: '⛰️ ';
+}
+
+
+.up::before {
+    content: '△ ';
+}
+
+.down::before {
+    content: '▽ ';
+}
+
+.up::after,
+.down::after {
+    content: ' m';
+}
+
+path.profile-line {
+    fill: none;
+    stroke: var(--white);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+path.profile-area {
+    fill: var(--yellow);
+}
+
+#stages {
+    padding: 0 1rem;
+}
+
+.stage {
+    margin: 1rem auto;
+    background-color: var(--grey);
+    padding: 0.2rem 1rem;
+    border-radius: 0.5rem;
+}
+
+header {
+    border-bottom: 2px solid var(--yellow);
+    font-size: 0.6rem;
+    background-color: var(--dark-grey);
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-family: "Satisfy", cursive;
+    font-size: 1.2rem;
+    color: var(--yellow);
+}
+
+h2 {
+    font-size: 0.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--yellow);
+    padding: 0.3em;
+    letter-spacing: 0.2rem;
+    font-weight: 600;
+}
+
+.location {
+    font-weight: 800;
+    font-size: 1.8rem;
+    line-height: 1.9rem;
+    margin-top: 0.5rem;
+}
+
+.distance {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0.3rem;
+}
+
+.profile {
+    margin-top: 0.5rem;
+}
+
+.stage-info {
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0.2rem;
+    color: var(--white);
+    gap: 2em;
+}
+
+.type {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+footer {
+    background-color: var(--yellow);
+    color: var(--dark-grey);
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.6rem;
+}
