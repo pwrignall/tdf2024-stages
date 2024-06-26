@@ -223,30 +223,27 @@ Object.keys(stages_data).forEach((stageKey) => {
   switch (stages_data[stageKey].type) {
     case "Flat":
       etaValue +=
-        (913.30045 * distance +
-          -4.75334 * Math.pow(distance, 2) +
-          0.00906 * Math.pow(distance, 3) +
-          -48309.76462) *
-        1000;
+        913300.44996 * distance +
+        -4753.3431 * Math.pow(distance, 2) +
+        9.05591 * Math.pow(distance, 3) +
+        -48309764.6231;
       break;
     case "Hilly":
       etaValue +=
-        (11040799.79915 * distance +
-          -56769.52203 * Math.pow(distance, 2) +
-          97.13565 * Math.pow(distance, 3) +
-          -714464057.54687) *
-        1000;
+        11040799799.14717 * distance +
+        -56769522.03344 * Math.pow(distance, 2) +
+        97135.65071 * Math.pow(distance, 3) +
+        -714464057546.8911;
       break;
     case "Mountain":
       etaValue +=
-        (659.14709 * distance +
-          -3.93346 * Math.pow(distance, 2) +
-          0.00863 * Math.pow(distance, 3) +
-          -24659.38461) *
-        1000;
+        659147.09163 * distance +
+        -3933.46003 * Math.pow(distance, 2) +
+        8.63328 * Math.pow(distance, 3) +
+        -24659384.60773;
       break;
     case "Individual Time Trial":
-      etaValue += (184.76882 * distance + 11179) * 1000;
+      etaValue += 184768.82299 * distance + 11178751.43768;
       break;
   }
   eta.textContent = `${new Date(etaValue).toLocaleTimeString("en-GB", {
