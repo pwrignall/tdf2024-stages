@@ -60,10 +60,6 @@ body {
     content: '🏁 ~';
 }
 
-.eta {
-    font-variant-caps: all-petite-caps;
-}
-
 path.profile-line {
     fill: none;
     stroke: var(--white);
