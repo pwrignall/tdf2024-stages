@@ -57,11 +57,10 @@ body {
 }
 
 .eta::before {
-    content: '🏁 ';
+    content: '🏁 ~';
 }
 
-.eta::after {
-    content: ' ETA';
+.eta {
     font-variant-caps: all-petite-caps;
 }
 
