@@ -57,7 +57,7 @@ body {
 }
 
 .eta::before {
-    content: '🏁 ~';
+    content: '🏁 ≈';
 }
 
 path.profile-line {
