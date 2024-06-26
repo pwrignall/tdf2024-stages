@@ -1,5 +1,5 @@
 :root {
-    font-size: 20px;
+    font-size: 22px;
     --grey: hsl(180, 10%, 15%);
     --dark-grey: hsl(180, 10%, 5%);
     --yellow: rgb(255, 230, 90);
@@ -15,7 +15,7 @@
 body {
     font-family: "Dosis", sans-serif;
     font-optical-sizing: auto;
-    font-style: normal;
+    font-weight: 500;
     background-color: var(--dark-grey);
     color: var(--white);
 }
@@ -44,11 +44,13 @@ body {
 
 
 .up::before {
-    content: '△ ';
+    content: '\2191 ';
+    font-size: 0.6rem;
 }
 
 .down::before {
-    content: '▽ ';
+    content: '\2193 ';
+    font-size: 0.6rem;
 }
 
 .up::after,
@@ -58,6 +60,7 @@ body {
 
 .eta::before {
     content: '🏁 ≈';
+    font-size: 0.5rem;
 }
 
 path.profile-line {
@@ -97,7 +100,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.4rem;
 }
 
 h1 {
@@ -135,18 +138,19 @@ h2 {
 }
 
 .stage-info {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 0.5rem 0.2rem;
     color: var(--white);
-    gap: 2em;
+    font-weight: 500;
 }
 
 .type {
     font-size: 0.8rem;
     margin-top: 0.3rem;
+    font-weight: 500;
 }
 
 footer {
@@ -158,6 +162,17 @@ footer {
     margin-top: 1rem;
 }
 
+.tz {
+    font-size: 0.6rem;
+}
+
+#tz-info {
+    margin-bottom: 0.5rem;
+    font-size: 0.6rem;
+    text-align: center;
+    font-weight: 500;
+}
+
 @media screen and (min-width: calc(500px + 3rem)) {
     :root {
         font-size: 32px;
@@ -165,6 +180,14 @@ footer {
 
     #stages {
         grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    }
+
+    .stage-info {
+        font-size: 0.7rem;
+    }
+
+    .tz {
+        font-size: 0.5rem;
     }
 
 }

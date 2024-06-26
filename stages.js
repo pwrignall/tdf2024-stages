@@ -200,6 +200,16 @@ const stages_data = {
   },
 };
 
+const currentTime = new Date();
+const tzInfoParagraph = document.getElementById("tz-info");
+tzInfoParagraph.textContent += `${currentTime
+  .toLocaleTimeString("en-GB", {
+    hour: "numeric",
+    minute: "numeric",
+    timeZoneName: "long",
+  })
+  .slice(5)}`;
+
 Object.keys(stages_data).forEach((stageKey) => {
   const topElems = document.createElement("div");
   topElems.className = "top-elements";
@@ -246,11 +256,21 @@ Object.keys(stages_data).forEach((stageKey) => {
       etaValue += 184768.82299 * distance + 11178751.43768;
       break;
   }
-  eta.textContent = `${new Date(etaValue).toLocaleTimeString("en-GB", {
+  const etaText = new Date(etaValue);
+  eta.textContent = `${etaText.toLocaleTimeString("en-GB", {
     hour: "numeric",
     minute: "numeric",
-    timeZoneName: "short",
   })}`;
+  const tz_text = document.createElement("span");
+  tz_text.className = "tz";
+  tz_text.textContent += `${etaText
+    .toLocaleTimeString("en-GB", {
+      hour: "numeric",
+      minute: "numeric",
+      timeZoneName: "short",
+    })
+    .slice(5)}`;
+  eta.appendChild(tz_text);
 
   const stageHeader = document.createElement("h2");
   stageHeader.textContent = stages_data[stageKey].name;
