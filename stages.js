@@ -15,7 +15,7 @@ const stages_data = {
     distance: 198.63389770931815,
     up: 1865.5299999999988,
     down: -1812.619999999999,
-    type: "Hilly",
+    type: "Lumpy",
   },
   "stage-03": {
     name: "\u00c9tape 3",
@@ -69,7 +69,7 @@ const stages_data = {
     distance: 183.29249930965597,
     up: 2308.190000000002,
     down: -2314.4200000000014,
-    type: "Flat",
+    type: "Lumpy",
   },
   "stage-09": {
     name: "\u00c9tape 9",
@@ -78,7 +78,7 @@ const stages_data = {
     distance: 198.70553931582816,
     up: 2017.0799999999992,
     down: -2023.0599999999977,
-    type: "Hilly",
+    type: "Lumpy",
   },
   "rest-01": {
     name: "Rest day 1",
@@ -101,7 +101,7 @@ const stages_data = {
     distance: 211.18076369893973,
     up: 4314.1500000000015,
     down: -3577.680000000002,
-    type: "Mountain",
+    type: "Hilly",
   },
   "stage-12": {
     name: "\u00c9tape 12",
@@ -110,7 +110,7 @@ const stages_data = {
     distance: 203.74306737220525,
     up: 2131.2299999999977,
     down: -2670.6199999999994,
-    type: "Flat",
+    type: "Lumpy",
   },
   "stage-13": {
     name: "\u00c9tape 13",
@@ -119,7 +119,7 @@ const stages_data = {
     distance: 165.12150491333014,
     up: 1896.4000000000015,
     down: -1759.9299999999998,
-    type: "Flat",
+    type: "Lumpy",
   },
   "stage-14": {
     name: "\u00c9tape 14",

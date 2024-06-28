@@ -38,6 +38,10 @@ body {
     content: '🚵 ';
 }
 
+.type[data-type="lumpy"]::before {
+    content: '🎢 ';
+}
+
 .type[data-type="mountain"]::before {
     content: '⛰️ ';
 }
