@@ -15,7 +15,7 @@ const stages_data = {
     distance: 198.63389770931815,
     up: 1865.5299999999988,
     down: -1812.619999999999,
-    type: "Hilly",
+    type: "Lumpy",
   },
   "stage-03": {
     name: "\u00c9tape 3",
@@ -69,7 +69,7 @@ const stages_data = {
     distance: 183.29249930965597,
     up: 2308.190000000002,
     down: -2314.4200000000014,
-    type: "Flat",
+    type: "Lumpy",
   },
   "stage-09": {
     name: "\u00c9tape 9",
@@ -78,7 +78,7 @@ const stages_data = {
     distance: 198.70553931582816,
     up: 2017.0799999999992,
     down: -2023.0599999999977,
-    type: "Hilly",
+    type: "Lumpy",
   },
   "rest-01": {
     name: "Rest day 1",
@@ -101,7 +101,7 @@ const stages_data = {
     distance: 211.18076369893973,
     up: 4314.1500000000015,
     down: -3577.680000000002,
-    type: "Mountain",
+    type: "Hilly",
   },
   "stage-12": {
     name: "\u00c9tape 12",
@@ -110,7 +110,7 @@ const stages_data = {
     distance: 203.74306737220525,
     up: 2131.2299999999977,
     down: -2670.6199999999994,
-    type: "Flat",
+    type: "Lumpy",
   },
   "stage-13": {
     name: "\u00c9tape 13",
@@ -119,7 +119,7 @@ const stages_data = {
     distance: 165.12150491333014,
     up: 1896.4000000000015,
     down: -1759.9299999999998,
-    type: "Flat",
+    type: "Lumpy",
   },
   "stage-14": {
     name: "\u00c9tape 14",
@@ -233,27 +233,33 @@ Object.keys(stages_data).forEach((stageKey) => {
   switch (stages_data[stageKey].type) {
     case "Flat":
       etaValue +=
-        913300.44996 * distance +
-        -4753.3431 * Math.pow(distance, 2) +
-        9.05591 * Math.pow(distance, 3) +
-        -48309764.6231;
+        -77.804 * Math.pow(distance, 3) +
+        45444.6795 * Math.pow(distance, 2) +
+        -8654157.6816 * distance +
+        553605879.4001;
+      break;
+    case "Lumpy":
+      etaValue +=
+        -192.1655 * Math.pow(distance, 3) +
+        106181.1413 * Math.pow(distance, 2) +
+        -19407559.948 * distance +
+        1188564652.9984;
       break;
     case "Hilly":
       etaValue +=
-        11040799799.14717 * distance +
-        -56769522.03344 * Math.pow(distance, 2) +
-        97135.65071 * Math.pow(distance, 3) +
-        -714464057546.8911;
+        -4481.3973 * Math.pow(distance, 2) +
+        1871583.3782 * distance +
+        -175344122.0155;
       break;
     case "Mountain":
       etaValue +=
-        659147.09163 * distance +
-        -3933.46003 * Math.pow(distance, 2) +
-        8.63328 * Math.pow(distance, 3) +
-        -24659384.60773;
+        83.6297 * Math.pow(distance, 3) +
+        -40482.9596 * Math.pow(distance, 2) +
+        6537458.2183 * distance +
+        -336862447.0355;
       break;
     case "Individual Time Trial":
-      etaValue += 184768.82299 * distance + 11178751.43768;
+      etaValue += 184768.823 * distance + 11178751.4377;
       break;
   }
   const etaText = new Date(etaValue);

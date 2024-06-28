@@ -38,6 +38,10 @@ body {
     content: '🚵 ';
 }
 
+.type[data-type="lumpy"]::before {
+    content: '🐫 ';
+}
+
 .type[data-type="mountain"]::before {
     content: '⛰️ ';
 }
@@ -171,6 +175,10 @@ footer {
     font-size: 0.6rem;
     text-align: center;
     font-weight: 500;
+}
+
+.rest {
+    background-color: var(--dark-grey);
 }
 
 @media screen and (min-width: calc(500px + 3rem)) {
